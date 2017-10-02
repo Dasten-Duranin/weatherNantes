@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-var express = require('express');
+var express = require('express'),
+	path = require('path');
 
 //controllers
 var weather = require('./controllers/weather');
@@ -16,7 +17,7 @@ app.set('views', path.join(__dirname + '/views'));
 app.set('view engine', 'hbs');
 
 //routes
-app.use('/weatger', weather);
+app.use('/weather', weather);
 
 //public files
 app.use(express.static(path.join(__dirname, '/../public')));

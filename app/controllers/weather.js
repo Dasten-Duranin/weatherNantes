@@ -3,9 +3,10 @@ var express = require('express'),
 	Weather = require('../models/Weather'),
 	global  = require('../global');
 
-router.get('/weather', function(req, res, next){
+router.get('/', function(req, res, next){
 
 	Weather.getWeather(function(weather){
+		console.log(weather);
 		res.render('weather', {weather: weather});
 	})
 });
