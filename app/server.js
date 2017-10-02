@@ -13,9 +13,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodiess
 
-app.set('views', path.join(__dirname + '/views'));
-app.set('view engine', 'hbs');
-
 //routes
 app.use('/weather', weather);
 

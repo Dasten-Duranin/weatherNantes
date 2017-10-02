@@ -7,7 +7,8 @@ router.get('/', function(req, res, next){
 
 	Weather.getWeather(function(weather){
 		console.log(weather);
-		res.render('weather', {weather: weather});
+		res.setHeader('Content-Type', 'application/json');
+		res.send(JSON.stringify(weather));
 	})
 });
 
