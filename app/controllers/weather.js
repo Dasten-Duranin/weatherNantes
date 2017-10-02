@@ -1,7 +1,7 @@
 var express = require('express'),
-	router = express.Router(),
-	Weather = require('../models/weather'),
-  global = require('../global');
+	router  = express.Router(),
+	Weather = require('../models/Weather'),
+	global  = require('../global');
 
 router.get('/weather', function(req, res, next){
 
