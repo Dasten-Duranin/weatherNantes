@@ -17,14 +17,14 @@ var express = require('express'),
 
 					if(data !== undefined) {
 						console.log("DATA LOADED FROM CACHE");
-						res.setHeader('Content-Type', 'application/json');
-						res.setHeader('Cache-Control', 'public, max-age=100000');
+						res.header('Content-Type', 'application/json');
+						res.header('Cache-Control', 'public, max-age=100000');
 						res.send(JSON.stringify(data));
 					} else {
 						console.log("DATA LOADED FROM API");
 						Weather.getWeather(function(weather){
 							memcached.set('weather', weather, 100, function (err) {
-								res.setHeader('Content-Type', 'application/json');
+								res.header('Content-Type', 'application/json');
 								res.send(JSON.stringify(weather));
 				 			});
 						});
