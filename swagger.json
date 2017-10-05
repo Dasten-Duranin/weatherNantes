@@ -1,0 +1,88 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "L'API weatherNantes permet de récuprer les données météorologiques de la ville de Nantes. L'API stock ces données en base et utilise également un cache mémoire.",
+    "version": "1.0.0",
+    "title": "weatherNantes",
+    "contact": {
+      "email": "berthe.thomas01@gmail.com"
+    },
+    "license": {
+      "name": "leroux.tanguy.51@gmail.com souchu.laura@gmail.com"
+    }
+  },
+  "tags": [
+    {
+      "name": "weatherNantes",
+      "description": "API permettant de récupérer la météo de Nantes en temps réel"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/weather": {
+      "get": {
+        "tags": [
+          "weatherNantes"
+        ],
+        "summary": "Retourne les données météos de Nantes",
+        "description": "",
+        "operationId": "getWeather",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Opération réussie",
+            "schema": {
+              "$ref": "#/definitions/Weather"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Weather": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "uuid"
+        },
+        "host": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "api_key": {
+          "type": "string"
+        },
+        "iconPath": {
+          "type": "string"
+        },
+        "iconExt": {
+          "type": "string"
+        },
+        "temp": {
+          "type": "number"
+        },
+        "tempMin": {
+          "type": "number"
+        },
+        "tempMax": {
+          "type": "number"
+        },
+        "condition": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
